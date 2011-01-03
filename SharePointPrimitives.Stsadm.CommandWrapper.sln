@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharePointPrimitives.Stsadm.CommandWrapper", "SharePointPrimitives.Stsadm.CommandWrapper\SharePointPrimitives.Stsadm.CommandWrapper.csproj", "{4F4EAC42-0AE3-4C22-B953-A0FA4C5002D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharePointPrimitives.Stsadm.WhatIs", "SharePointPrimitives.Stsadm.WhatIs\SharePointPrimitives.Stsadm.WhatIs.csproj", "{604B3A8C-FEFF-4869-8EA7-3AE4CD1FB261}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F4EAC42-0AE3-4C22-B953-A0FA4C5002D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F4EAC42-0AE3-4C22-B953-A0FA4C5002D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F4EAC42-0AE3-4C22-B953-A0FA4C5002D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F4EAC42-0AE3-4C22-B953-A0FA4C5002D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{604B3A8C-FEFF-4869-8EA7-3AE4CD1FB261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{604B3A8C-FEFF-4869-8EA7-3AE4CD1FB261}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{604B3A8C-FEFF-4869-8EA7-3AE4CD1FB261}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{604B3A8C-FEFF-4869-8EA7-3AE4CD1FB261}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

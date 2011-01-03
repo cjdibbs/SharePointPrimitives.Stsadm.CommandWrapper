@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<commands>
+  <command
+    name="whatis"
+    class="SharePointPrimitives.Stsadm.WhatIs.Command, SharePointPrimitives.Stsadm.WhatIs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=54a532c4dd306648"/>
+</commands>
