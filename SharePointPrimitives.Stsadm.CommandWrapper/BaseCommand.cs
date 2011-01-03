@@ -6,6 +6,8 @@ using System.Linq;
 using log4net;
 using log4net.Config;
 using Microsoft.SharePoint.StsAdmin;
+using log4net.Core;
+using log4net.Repository.Hierarchy;
 
 namespace SharePointPrimitives.Stsadm {
     /// <summary>
@@ -15,6 +17,9 @@ namespace SharePointPrimitives.Stsadm {
 
         protected ILog Log { get; private set; }
         protected TextWriter Out { get; private set; }
+
+        protected Level Level { get; set; }
+
         /// <summary>
         /// Shown above the command argument help, intended to
         /// give a discrption of how the command works and what it does
@@ -55,6 +60,24 @@ namespace SharePointPrimitives.Stsadm {
                     ArgumentRequired = true,
                     Help = "sets the uri to load a log4net conf file from",
                     OnCommand = uri => XmlConfigurator.Configure(new Uri(uri))
+                };
+
+                yield return new CommandArgument() {
+                    Name = "log4net-level",
+                    CommandRequired = false,
+                    ArgumentRequired = true,
+                    Help = "set the max log level for log4net see http://logging.apache.org/log4net/release/sdk/log4net.Core.Level.html",
+                    OnCommand = level => {
+                        switch (level) {
+                            case "Off": Level = log4net.Core.Level.Off; break;
+                            case "Fatal": Level = log4net.Core.Level.Fatal; break;
+                            case "Error": Level = log4net.Core.Level.Error; break;
+                            case "Warn": Level = log4net.Core.Level.Warn; break;
+                            case "Info": Level = log4net.Core.Level.Info; break;
+                            case "Debug": Level = log4net.Core.Level.Debug; break;
+                            case "All": Level = log4net.Core.Level.All; break;
+                        }
+                    }
                 };
 
                 foreach (var arg in CommandArguments)
@@ -98,7 +121,15 @@ namespace SharePointPrimitives.Stsadm {
             if (!LogManager.GetRepository().Configured)
                 BasicConfigurator.Configure();
 
+
             Log = LogManager.GetLogger(GetType());
+
+
+
+            if (null != Level)
+                foreach (var repo in LogManager.GetAllRepositories())
+                    foreach (var logger in repo.GetCurrentLoggers().OfType<Logger>())
+                        logger.Level = Level;
             try {
                 if (!dispatchError)
                     ret = Run(command);
